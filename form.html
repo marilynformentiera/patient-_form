@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        Body {
+            background-color: #f0fff0;
+            font-family: Calibri;
+
+        }
+
+        h1 {
+            font-weight: bold;
+            color: #4682B4;
+            text-align: center;
+        }
+
+        table {
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: darkturquoise;
+            border-collapse: collapse;
+            border: 2px solid navy;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Patient Information Form</h1>
+    <form method="" action="" name="myform" onsubmit="return validate()">
+        <table align="center" cellpadding="10">
+            <!--First Name-->
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="fname" maxlength="30" /></td>
+            </tr>
+            <!--Middle name-->
+            <tr>
+                <td>Middle Name</td>
+                <td><input type="text" name="Mname" maxlength="30" /></td>
+            </tr>
+            <!--Lastname-->
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lname" maxlength="30" /></td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth</td>
+                <td><input type="date" name="date" id="date" min="1940-01-01" max="2021-12-31" /></td>
+            </tr>
+            <!--Address-->
+            <tr>
+                <td>Address</td>
+                <td><textarea name="address" placeholder="Enter Address" cols="50"></textarea></td>
+            </tr>
+            <!--Gender-->
+            <tr>
+                <td>Gender</td>
+                <td>Male<input type="radio" name="gender" value="male" />
+                    Female<input type="radio" name="gender" value="female" />
+                </td>
+            </tr>
+            <!--Phone no.-->
+            <tr>
+                <td>Phone</td>
+                <td><input type="text" name="phone" /></td>
+            </tr>
+            <!--email-->
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" maxlength="100" /></td>
+            </tr>
+            <!--Medical History-->
+            <tr>
+                <td>Medical History </td>
+                <td> Asthma : <input type="checkbox" name="medicalhistory" id="medicalhistory" value="Asthma" />
+                    Cancer : <input type="checkbox" name="medicalhistory" id="medicalhistory" value="Cancer" /><br>
+                    Cardiac Disease : <input type="checkbox" name="medicalhistory" id="hobby" value="Cardiac Disease" />
+                    Diabetes: <input type="checkbox" name="medicalhistory" id="medicalhistory" value="Diabetes" /><br>
+                    Hypertension: <input type="checkbox" name="medicalhistory" id="medicalhistory"
+                        value="Hypertension" />
+                    Psychiactric order: <input type="checkbox" name="medicalhistory" id="medicalhistory"
+                        value="Psychiactric order" />
+                    None: <input type="checkbox" name="medicalhistory" id="medicalhistory" value="None" />
+                </td>
+            </tr>
+            <!--Select symptoms-->
+            <tr>
+                <td>Symptom/s</td>
+                <td>
+                    <select id="symptoms" multiple="multiple" name="symptoms">
+                        <option value=""></option>
+                        <option value="chestpain">chestpain</option>
+                        <option value="respiratory">respiratory</option>
+                        <option value="hematological">hematological</option>
+                        <option value="lymphatic">lymphatic</option>
+                        <option value="lymphatic">lymphatic</option>
+                        <option value="neurological">neurilogical</option>
+                        <option value="psychiactric">psychiactric</option>
+                        <option value="gastrointestinal">gastrointestinal</option>
+                        <option value="weightloss">weightloss</option>
+                    </select>
+                </td>
+            </tr>
+            <!--Medication-->
+            <tr>
+                <td>Are you taking any medication?</td>
+                <td>Yes<input type="radio" name="answer" value="Yes" />
+                    No<input type="radio" name="answer" value="No" />
+                </td>
+            </tr>
+            <!--Submit-->
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="submit" value="Submit" />
+                    <input type="button" onclick="myFunction()" value="Reset form">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <script type="text/javascript">
+        function validate() {
+            const first = document.forms["myform"]["fname"].value;
+            var middle = document.forms["myform"]["Mname"].value;
+            var last = document.forms["myform"]["lname"].value;
+            var date = document.forms["myform"]["date"].value;
+            var address = document.forms["myform"]["address"].value;
+            var gender = document.forms["myform"]["gender"].value;
+            var phone = document.forms["myform"]["phone"].value;
+            var email = document.forms["myform"]["email"].value;
+            var medicalhistory = document.forms["myform"]["medicalhistory"].value;
+            var symptoms = document.forms["myform"]["symptoms"].value;
+            var answer = document.forms["myform"]["answer"].value;
+            //first name
+            if (first == "") {
+                alert("Enter the first name");
+                return false;
+            }
+            if (!isNaN(first)) {
+                alert("Name should be character");
+                return false;
+            }
+            //middle name
+            if (middle == "") {
+                alert("Enter the first Middle name");
+                return false;
+            }
+            if (!isNaN(middle)) {
+                alert("Middle Name should be character");
+                return false;
+            }
+            //last name
+            if (last == "") {
+                alert("Enter the last name");
+                return false;
+            }
+            if (!isNaN(last)) {
+                alert("Name should be character");
+                return false;
+            }
+            //date
+            if (date == "") {
+                alert("Enter date of birth");
+                return false;
+            }
+            //address
+            if (address == "") {
+                alert("Enter address")
+                return false;
+            }
+            //gender
+            if (gender == "") {
+                alert("Select a gender")
+                return false
+            }
+            //Phone
+            if (phone == "") {
+                alert("Enter phone number")
+                return false;
+            }
+            if (isNaN(phone)) {
+                alert("Phone no. should be in digit");
+                return false;
+            }
+            if (phone.length != 11) {
+                alert("must be 11 digit no.")
+                return false;
+            }
+
+            //email
+            var at = email.indexOf("@");
+            var dot = email.lastIndexOf(".");
+
+            if (at < 1 || dot < at + 2 || dot + 2 >= email.length) {
+                alert("Not a valid email")
+                return false;
+            }
+
+            // //medicalhistory
+            // if (!medicalhistory.checked) 
+            // {
+            //     alert("select a medical history");
+            //     return false;
+            // }
+            symptoms
+            if (symptoms == "") {
+                alert("select symptom")
+                return false;
+            }
+            //answer
+            if (answer == "") {
+                alert("Select an answer!")
+                return false
+            } else {
+                alert("Successfully submitted!");
+                return true;
+            }
+
+        }
+
+
+        // function confirm(){
+        //     if (document.forms["myform"]["fname"].value == "" ||document.forms["myform"]["Mname"].value=="" || document.forms["myform"]["lname"].value ==""||
+        //     document.forms["myform"]["date"].value=="" ||document.forms["myform"]["address"].value=="" ||document.forms["myform"]["gender"].value==""||
+        //     document.forms["myform"]["phone"].value =="" || document.forms["myform"]["email"].value =="" || document.forms["myform"]["medicalhistory"].value==""||
+        //     document.forms["myform"]["symptoms"].value =="" || document.forms["myform"]["answer"].value ==""){
+        //         alert("Empty Form");
+        //         return false;
+        //     }
+
+        // }
+        // const first = document.forms["myform"]["fname"].value;
+        //     var middle = document.forms["myform"]["Mname"].value;
+        //     var last = document.forms["myform"]["lname"].value;
+        //     var date = document.forms["myform"]["date"].value;
+        //     var address = document.forms["myform"]["address"].value;
+        //     var gender = document.forms["myform"]["gender"].value;
+        //     var phone = document.forms["myform"]["phone"].value;
+        //     var email = document.forms["myform"]["email"].value;
+        //     var medicalhistory = document.forms["myform"]["medicalhistory"].value;
+        //     var symptoms = document.forms["myform"]["symptoms"].value;
+        //     var answer = document.forms["myform"]["answer"].value;
+    </script>
+</body>
+
+</html>

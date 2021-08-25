@@ -1,0 +1,51 @@
+<html>
+
+<head>
+  <title>Patient Log in form</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <div class="container" align-center>
+    <div class="main">
+      <h2>Patient Log in</h2>
+      <form id="form_id" method="post" name="myform">
+        <label>User Name :</label>
+        <input type="text" name="username" id="username" />
+        <label>Password :</label>
+        <input type="password" name="password" id="password" />
+        <input type="button" value="Login" id="submit" onclick="validate()" />
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function validate() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+       if(username=="" || username == null){
+         alert("Please input username.")
+       } else if (password== "" || password == null){
+         alert ("Please input password.")
+       } else if (password.length <6){
+         alert("Password should be atleast 6 charaters.")
+       } else {
+         alert("Log in successfully!");
+         window.location = "form.html";
+        return false;
+       }
+      }
+
+    //   if (username == "12345" && password == "12345") {
+    //     alert("Login successfully!");
+    //     window.location = "form.html";
+    //     return false;
+    //   }
+
+    // }
+  </script>
+</body>
+
+</html>
